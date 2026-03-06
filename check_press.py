@@ -56,11 +56,12 @@ def send_notification(latest_release):
     """Envoie une notification via ntfy.sh."""
     requests.post(
         f"https://ntfy.sh/{NTFY_TOPIC}",
-        data=f"📢 {latest_release}".encode('utf-8'),
-        headers={
-            "Title": "Nouveau communiqué OFROU",
-            "Tags": "construction,road",
-            "Click": URL
+        json={
+            "topic": NTFY_TOPIC,
+            "title": "Nouveau communiqué OFROU",
+            "message": f"📢 {latest_release}",
+            "tags": ["construction", "road"],
+            "click": URL
         }
     )
     print(f"✅ Notification envoyée: {latest_release}")
