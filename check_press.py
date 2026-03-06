@@ -62,7 +62,8 @@ def send_notification(latest_release):
             "message": f"📢 {latest_release}",
             "tags": ["construction", "road"],
             "click": URL
-        }
+        },
+        headers={"Content-Type": "application/json"}
     )
     print(f"✅ Notification envoyée: {latest_release}")
 
