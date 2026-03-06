@@ -55,15 +55,14 @@ def save_hash(hash_value):
 def send_notification(latest_release):
     """Envoie une notification via ntfy.sh."""
     requests.post(
-        f"https://ntfy.sh/{NTFY_TOPIC}",
+        "https://ntfy.sh/",
         json={
             "topic": NTFY_TOPIC,
             "title": "Nouveau communiqué OFROU",
             "message": f"📢 {latest_release}",
             "tags": ["construction", "road"],
             "click": URL
-        },
-        headers={"Content-Type": "application/json"}
+        }
     )
     print(f"✅ Notification envoyée: {latest_release}")
 
