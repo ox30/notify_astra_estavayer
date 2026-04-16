@@ -2,8 +2,9 @@ name: Check OFROU Press Releases
 
 on:
   schedule:
+    # Toutes les heures
     - cron: '0 * * * *'
-  workflow_dispatch:
+  workflow_dispatch:  # Permet de lancer manuellement
 
 jobs:
   check:
@@ -28,6 +29,6 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add last_hash.txt
-          git diff --staged --quiet || git commit -m "Update last_hash.txt"
+          git add last_hashes.json
+          git diff --staged --quiet || git commit -m "Update last_hashes.json"
           git push
